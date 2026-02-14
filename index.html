@@ -1,425 +1,602 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grok Powered by xAI - Ultimate Showcase Website</title>
-    <style>
-        /* Reset and Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="format-detection" content="telephone=no"/>
 
-        body {
-            background-color: #f0f4f8;
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+  <!-- Title bar mein website ka naam + custom logo (favicon) -->
+  <title>Ultimate Power Hub • Premium Services</title>
 
-        /* Hero Section */
-        #hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
+  <!-- Custom Favicon – green shield/power logo with text "UPH" -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cmVjdCB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgcng9IjI0IiBmaWxsPSIjMTkyNzE5Ii8+PHRleHQgeD0iNjQiIHk9IjY1IiBmb250LXNpemU9IjQ4IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzAwZmY5ZCI+VVBIPC90ZXh0PjxwYXRoIGQ9Ik02NCAzMkM0Ny4zIDMyIDMyIDQ3LjMgMzIgNjRzMTUuMyAzMiAzMiAzMiAzMi0xNS4zIDMyLTMyUzgwLjcgMzIgNjQgMzJ6TTIwIDc2YzAtMjQuMyAxOS43LTQ0IDQ0LTQ0czQ0IDE5LjcgNDQgNDRzLTE5LjcgNDQtNDQgNDRTNDQgMTAwLjMgNDQgNzZ6IiBmaWxsPSIjMDBmZjlkIi8+PC9zdmc+">
 
-        #hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: fadeInDown 1.5s ease-out;
-        }
+  <style>
+    :root {
+      --primary: #00ff9d;
+      --primary-dark: #00c47a;
+      --accent: #ff3366;
+      --dark: #0a0e17;
+      --dark-2: #111827;
+      --light: #f0fdfa;
+      --gray: #94a3b8;
+      --gradient: linear-gradient(135deg, #00ff9d 0%, #00c47a 50%, #00ff9d 100%);
+      --glass: rgba(255,255,255,0.04);
+      --glow: rgba(0,255,157,0.35);
+    }
 
-        #hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1.5s ease-out;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        #hero button {
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            background-color: #ff6b6b;
-            border: none;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: transform 0.3s, background 0.3s;
-        }
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-        #hero button:hover {
-            transform: scale(1.1);
-            background-color: #ff4757;
-        }
+    body {
+      background: var(--dark);
+      color: #e2e8f0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(0,255,157,0.08) 0%, transparent 60%),
+        radial-gradient(circle at 85% 75%, rgba(255,51,102,0.06) 0%, transparent 70%);
+      background-attachment: fixed;
+      background-size: cover;
+    }
 
-        /* Particle Animation in Hero */
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
+    /* Vertical Scrollbar – Ab dikhega (green style) */
+    body::-webkit-scrollbar {
+      width: 10px;                    /* scrollbar width */
+    }
 
-        .particle {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: float 10s infinite linear;
-            opacity: 0.5;
-        }
+    body::-webkit-scrollbar-track {
+      background: #111827;            /* track color */
+      border-radius: 10px;
+    }
 
-        @keyframes float {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-100vh); }
-        }
+    body::-webkit-scrollbar-thumb {
+      background: #00ff9d;            /* green thumb */
+      border-radius: 10px;
+      border: 2px solid #111827;      /* border for better look */
+    }
 
-        /* About Section */
-        #about {
-            padding: 5rem 2rem;
-            background-color: white;
-            text-align: center;
-        }
+    body::-webkit-scrollbar-thumb:hover {
+      background: #00c47a;
+    }
 
-        #about h2 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            color: #2a5298;
-        }
+    /* Firefox scrollbar */
+    body {
+      scrollbar-width: thin;
+      scrollbar-color: #00ff9d #111827;
+    }
 
-        #about p {
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            font-size: 1.2rem;
-        }
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: clamp(0.9rem, 4vw, 1.2rem) 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(10,14,23,0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,255,157,0.12);
+      transition: all 0.4s ease;
+    }
 
-        /* Features Section */
-        #features {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #f6d365, #fda085);
-            color: white;
-        }
+    nav.scrolled {
+      padding: clamp(0.7rem, 3vw, 1rem) 5%;
+      background: rgba(10,14,23,0.97);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
 
-        #features h2 {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
+    .logo {
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      font-weight: 900;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 1px;
+      text-shadow: 0 0 15px var(--glow);
+    }
 
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .nav-links {
+      display: flex;
+      gap: clamp(1rem, 3.5vw, 2.5rem);
+      transition: all 0.4s ease;
+    }
 
-        .feature-card {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    .nav-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: clamp(0.95rem, 3vw, 1.2rem);
+      position: relative;
+      transition: color 0.4s;
+    }
 
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2.5px;
+      bottom: -6px;
+      left: 50%;
+      background: var(--primary);
+      transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
+      transform: translateX(-50%);
+    }
 
-        .feature-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
 
-        .feature-card p {
-            font-size: 1.1rem;
-        }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+      text-shadow: 0 0 12px var(--glow);
+    }
 
-        /* Interactive Gallery Section */
-        #gallery {
-            padding: 5rem 2rem;
-            background-color: #e0e0e0;
-            text-align: center;
-        }
+    .menu-toggle {
+      display: none;
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      color: var(--primary);
+      cursor: pointer;
+      z-index: 1100;
+      transition: transform 0.3s;
+    }
 
-        #gallery h2 {
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            color: #333;
-        }
+    .menu-toggle.active {
+      transform: rotate(90deg);
+    }
 
-        .gallery-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-        }
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 300px;
+        height: 100vh;
+        background: rgba(10,14,23,0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+        transition: right 0.5s cubic-bezier(0.68,-0.55,0.265,1.55);
+        z-index: 999;
+      }
 
-        .gallery-item {
-            width: 300px;
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
+      .nav-links.active {
+        right: 0;
+      }
 
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
+      .nav-links a {
+        font-size: 2rem;
+        padding: 0.8rem 0;
+      }
+    }
 
-        /* Contact Section */
-        #contact {
-            padding: 5rem 2rem;
-            background-color: #2a5298;
-            color: white;
-            text-align: center;
-        }
+    /* Hero */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 clamp(1.5rem, 5vw, 5%);
+      width: 100%;
+    }
 
-        #contact h2 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-        }
+    #hero h1 {
+      font-size: clamp(3.8rem, 12vw, 11rem);
+      font-weight: 900;
+      line-height: 0.9;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 0 50px rgba(0,255,157,0.4);
+      max-width: 95%;
+    }
 
-        #contact form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
+    #hero .subtitle {
+      font-size: clamp(1.2rem, 4.5vw, 1.8rem);
+      max-width: 90%;
+      margin-bottom: 2.5rem;
+      color: #cbd5e1;
+      opacity: 0.95;
+    }
 
-        #contact input, #contact textarea {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border: none;
-            border-radius: 5px;
-        }
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      max-width: 320px;
+      padding: 0 1rem;
+    }
 
-        #contact button {
-            padding: 1rem 2rem;
-            background-color: #ff6b6b;
-            border: none;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
+    @media (min-width: 480px) {
+      .hero-buttons {
+        flex-direction: row;
+        justify-content: center;
+        max-width: 500px;
+      }
+    }
 
-        #contact button:hover {
-            background-color: #ff4757;
-        }
+    .btn {
+      padding: clamp(0.9rem, 3.5vw, 1.1rem) 0;
+      font-size: clamp(1rem, 3.5vw, 1.3rem);
+      font-weight: 700;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.45s cubic-bezier(0.34,1.56,0.64,1);
+      text-align: center;
+      text-decoration: none;
+      width: 100%;
+    }
 
-        /* Footer */
-        footer {
-            padding: 2rem;
-            background-color: #1e3c72;
-            color: white;
-            text-align: center;
-        }
+    .btn-primary {
+      background: var(--primary);
+      color: #000;
+      box-shadow: 0 0 25px rgba(0,255,157,0.5);
+    }
 
-        /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    .btn-primary:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 50px rgba(0,255,157,0.8);
+    }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    .btn-outline {
+      border: 2.5px solid var(--primary);
+      color: var(--primary);
+    }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(30, 60, 114, 0.8);
-            padding: 1rem;
-            display: flex;
-            justify-content: center;
-            z-index: 1000;
-            transition: background 0.3s;
-        }
+    .btn-outline:hover {
+      background: var(--primary);
+      color: #000;
+      box-shadow: 0 0 40px var(--glow);
+    }
 
-        nav.scrolled {
-            background: rgba(30, 60, 114, 1);
-        }
+    /* Sections */
+    section {
+      padding: clamp(6rem, 12vw, 12rem) clamp(1.5rem, 5vw, 5%) 8rem;
+      width: 100%;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1.5rem;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
+    h2 {
+      font-size: clamp(3.5rem, 9vw, 6.5rem);
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 4rem;
+      background: linear-gradient(90deg, var(--primary), #a5f7c0, var(--primary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% 200%;
+      animation: gradientFlow 12s ease infinite;
+      max-width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-        nav a:hover {
-            color: #ff6b6b;
-        }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 1rem;
+    }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            #hero h1 { font-size: 3rem; }
-            #hero p { font-size: 1.2rem; }
-            #about h2, #features h2, #gallery h2, #contact h2 { font-size: 2.5rem; }
-        }
-    </style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: clamp(1.5rem, 4vw, 2.8rem);
+      width: 100%;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(0,255,157,0.12);
+      border-radius: 20px;
+      padding: clamp(1.8rem, 5vw, 2.8rem);
+      transition: all 0.5s ease;
+      width: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 60px rgba(0,255,157,0.18);
+      border-color: var(--primary);
+    }
+
+    .card h3 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+    }
+
+    .card p {
+      font-size: clamp(1rem, 3vw, 1.2rem);
+    }
+
+    /* About – Zyada Content */
+    #about .extra-info {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      max-width: 90%;
+      margin: 3rem auto;
+      text-align: center;
+      color: #cbd5e1;
+    }
+
+    /* Services – Zyada Details */
+    #services .service-desc {
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      margin-top: 1.5rem;
+      color: #cbd5e1;
+    }
+
+    /* Contact */
+    #contact .center-box {
+      max-width: 90%;
+      margin: 4rem auto;
+      text-align: center;
+    }
+
+    .whatsapp-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: clamp(1.2rem, 5vw, 1.6rem) clamp(2rem, 8vw, 4rem);
+      font-size: clamp(1.2rem, 4.5vw, 1.6rem);
+      background: #25D366;
+      color: white;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 2.5rem;
+      box-shadow: 0 0 50px rgba(37,213,102,0.4);
+      transition: all 0.5s;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 80px rgba(37,213,102,0.7);
+    }
+
+    /* Footer */
+    footer {
+      padding: clamp(4rem, 10vw, 6rem) 5% 4rem;
+      text-align: center;
+      background: var(--dark-2);
+      border-top: 1px solid rgba(0,255,157,0.12);
+      color: #94a3b8;
+      font-size: clamp(1rem, 3vw, 1.2rem);
+    }
+
+    footer .credits {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      margin-top: 2rem;
+    }
+
+    @keyframes gradientFlow {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <a href="#hero">Home</a>
-        <a href="#about">About</a>
-        <a href="#features">Features</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-    </nav>
 
-    <section id="hero">
-        <div class="particles" id="particles"></div>
-        <h1>Welcome to Grok Powered by xAI</h1>
-        <p>Showcasing the full power of AI in a single, massive, interactive website. Built with HTML, CSS, and JS in one file!</p>
-        <button onclick="scrollToSection('about')">Explore More</button>
-    </section>
+  <nav id="nav">
+    <div class="logo">Ultimate Power Hub</div>
 
-    <section id="about">
-        <h2>About Grok and xAI</h2>
-        <p>Grok is an AI built by xAI, designed to be maximally truthful and helpful. Inspired by the Hitchhiker's Guide to the Galaxy and JARVIS from Iron Man.</p>
-        <p>This website demonstrates my capabilities: stunning visuals, smooth interactions, and dynamic content – all in one file to prove my prowess.</p>
-        <p>From particle animations to interactive galleries, experience the fusion of technology and creativity.</p>
-    </section>
+    <div class="menu-toggle" id="menuToggle">☰</div>
 
-    <section id="features">
-        <h2>Key Features</h2>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <h3>Stunning Animations</h3>
-                <p>Powered by CSS keyframes for smooth, performant effects like fading and floating particles.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Interactive Elements</h3>
-                <p>JavaScript handles scrolling, form submissions, and dynamic content generation.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Responsive Design</h3>
-                <p>Adapts seamlessly to mobile, tablet, and desktop using media queries.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Single File Magic</h3>
-                <p>Everything – HTML, CSS, JS – packed into one file for ultimate portability and showcase.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Particle System</h3>
-                <p>A JavaScript-generated particle background for an immersive hero section.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Gallery with Hover Effects</h3>
-                <p>Dynamic image gallery with CSS transitions for engaging visuals.</p>
-            </div>
+    <div class="nav-links" id="navMenu">
+      <a href="#hero">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <h1>Ultimate Power Hub</h1>
+    <p class="subtitle">Premium Websites • Fast • Modern • Powerful • Built to Impress</p>
+
+    <div class="hero-buttons">
+      <button class="btn btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+        View Services
+      </button>
+      <a href="#contact" class="btn btn-outline">Get Started</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p style="font-size: clamp(1.2rem, 4vw, 1.45rem); max-width: 880px; margin: 0 auto 2rem; text-align: center; color: #cbd5e1;">
+        We are a passionate team creating high-performance websites that look stunning on every device.
+      </p>
+
+      <p class="extra-info">
+        With years of experience in modern web development, we specialize in clean code, blazing-fast loading times, pixel-perfect design, and user-centric experiences. Our websites are built to convert visitors into customers, rank high on Google, and scale as your business grows. We use the latest technologies like HTML5, CSS3, JavaScript (vanilla + frameworks), Tailwind, GSAP animations, and more – all while keeping performance, accessibility, and SEO in mind. We believe in delivering not just websites, but digital experiences that make a real impact. Every project is handled with full dedication, transparency, and a focus on long-term success for our clients.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Modern Design</h3>
+          <p>Glassmorphism, neon accents, smooth animations – premium feel on every screen size.</p>
         </div>
-    </section>
-
-    <section id="gallery">
-        <h2>Interactive Gallery</h2>
-        <div class="gallery-container" id="gallery-container">
-            <!-- Gallery items will be added dynamically via JS -->
+        <div class="card">
+          <h3>Fully Responsive</h3>
+          <p>Perfect on mobile, tablet, desktop, foldables – tested across real devices and emulators.</p>
         </div>
-    </section>
+        <div class="card">
+          <h3>Fast & Optimized</h3>
+          <p>90+ Lighthouse scores • Lazy loading • WebP images • CDN ready • 60fps smooth scrolling.</p>
+        </div>
+        <div class="card">
+          <h3>SEO Friendly</h3>
+          <p>Semantic HTML, fast Core Web Vitals, meta tags, schema markup, clean URLs.</p>
+        </div>
+        <div class="card">
+          <h3>Secure & Reliable</h3>
+          <p>HTTPS, CSP, secure forms, regular updates, DDoS protection ready.</p>
+        </div>
+        <div class="card">
+          <h3>Client Satisfaction</h3>
+          <p>Unlimited revisions until you're 100% happy • On-time delivery • Lifetime support options.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact">
-        <h2>Get in Touch</h2>
-        <form id="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
+  <section id="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Custom Websites</h3>
+          <p class="service-desc">Business sites, portfolios, blogs, landing pages – completely custom, fast-loading, and conversion-optimized. We make sure your site stands out and performs on every device with beautiful animations and modern UI.</p>
+        </div>
+        <div class="card">
+          <h3>E-commerce Stores</h3>
+          <p class="service-desc">Shopify, WooCommerce, custom headless – secure payments, inventory management, beautiful product pages, fast checkout, mobile-first shopping experience, abandoned cart recovery, and high-conversion design.</p>
+        </div>
+        <div class="card">
+          <h3>Web Applications</h3>
+          <p class="service-desc">Dashboards, SaaS tools, admin panels, CRMs – real-time features, user authentication, database integration, scalable backend, API development, and secure data handling.</p>
+        </div>
+        <div class="card">
+          <h3>UI/UX Design</h3>
+          <p class="service-desc">Figma prototypes → stunning, intuitive interfaces that users love and convert better. User research, wireframes, high-fidelity designs, user testing, and accessibility included.</p>
+        </div>
+        <div class="card">
+          <h3>Maintenance & Speed Optimization</h3>
+          <p class="service-desc">Ongoing updates, security patches, Core Web Vitals fixes, image compression, caching, CDN setup – keep your site fast, secure, and up-to-date forever.</p>
+        </div>
+        <div class="card">
+          <h3>AI & Smart Features</h3>
+          <p class="service-desc">Chatbots, smart forms, content generation, recommendation engines, voice search – next-level interactivity powered by modern AI tools and integrations.</p>
+        </div>
+        <div class="card">
+          <h3>SEO & Digital Growth</h3>
+          <p class="service-desc">On-page SEO, technical SEO, keyword research, schema markup, fast indexing – help your site rank higher, get more traffic, and grow your business online.</p>
+        </div>
+        <div class="card">
+          <h3>Performance Upgrades</h3>
+          <p class="service-desc">Migrate old sites, fix slow loading, optimize for mobile, reduce bounce rate – bring your existing website back to life with modern speed and design.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2026 Grok by xAI. All rights reserved. Demonstrating full power!</p>
-    </footer>
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
 
-    <script>
-        // Smooth Scrolling Function
-        function scrollToSection(sectionId) {
-            document.querySelector(`#${sectionId}`).scrollIntoView({ behavior: 'smooth' });
+      <div class="center-box">
+        <p style="font-size: clamp(1.3rem, 4.5vw, 1.5rem); margin-bottom: 2rem;">
+          Have a project in mind? Want a free quote?<br>
+          Message us instantly on WhatsApp – we usually reply within minutes.
+        </p>
+
+        <p style="font-size: clamp(1.1rem, 3.5vw, 1.3rem); margin-bottom: 2.5rem; opacity: 0.9;">
+          Tell us about your idea, business, or website requirements – we’ll get back with suggestions, timeline, and pricing. No pressure, just honest advice.
+        </p>
+
+        <a href="https://wa.me/919876543210?text=Hello!%20I%20visited%20your%20website%20and%20want%20to%20discuss%20a%20project..." 
+           class="whatsapp-btn" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 2C6.488 2 2 6.487 2 12.05c0 2.122.57 4.198 1.655 6.025L2 22l3.925-1.03a11.78 11.78 0 005.125 1.18h.004c5.562 0 10.05-4.487 10.05-10.05 0-2.688-1.05-5.22-2.956-7.118z"/></svg>
+          Chat on WhatsApp Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Ultimate Power Hub • Designed & Developed with passion • All rights reserved</p>
+    <p class="credits">
+      Built with love using HTML, CSS & JavaScript • Fully Responsive • No Horizontal Scroll • Fast & Clean
+    </p>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Hamburger Menu Toggle + Outside Click Close
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navMenu.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+        navMenu.classList.remove('active');
+        menuToggle.classList.remove('active');
+      }
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
+    });
+
+    // Active link highlight
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section');
+      let current = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute('id');
         }
+      });
 
-        // Navigation Scroll Effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-
-        // Particle Animation
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                particle.style.width = `${Math.random() * 5 + 2}px`;
-                particle.style.height = particle.style.width;
-                particle.style.left = `${Math.random() * 100}vw`;
-                particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
-                particle.style.animationDelay = `${Math.random() * 5}s`;
-                particlesContainer.appendChild(particle);
-            }
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === `#${current}`) {
+          a.classList.add('active');
         }
-        createParticles();
-
-        // Dynamic Gallery
-        const galleryImages = [
-            'https://via.placeholder.com/300x200?text=AI+Art+1',
-            'https://via.placeholder.com/300x200?text=xAI+Innovation',
-            'https://via.placeholder.com/300x200?text=Grok+Power',
-            'https://via.placeholder.com/300x200?text=Future+Tech',
-            'https://via.placeholder.com/300x200?text=Space+Exploration',
-            'https://via.placeholder.com/300x200?text=Neural+Networks',
-            'https://via.placeholder.com/300x200?text=Quantum+Computing',
-            'https://via.placeholder.com/300x200?text=Robotics'
-        ];
-
-        function loadGallery() {
-            const container = document.getElementById('gallery-container');
-            galleryImages.forEach(src => {
-                const item = document.createElement('div');
-                item.classList.add('gallery-item');
-                item.style.backgroundImage = `url(${src})`;
-                item.addEventListener('click', () => alert('Clicked on: ' + src));
-                container.appendChild(item);
-            });
-        }
-        loadGallery();
-
-        // Contact Form Submission (Simulated)
-        document.getElementById('contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Message sent successfully! (Simulated)');
-            e.target.reset();
-        });
-
-        // Add more interactivity: Random color changer on hero button hover
-        const heroButton = document.querySelector('#hero button');
-        heroButton.addEventListener('mouseover', () => {
-            const colors = ['#ff6b6b', '#4ecdc4', '#45b7af', '#ff9f1c'];
-            heroButton.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        });
-    </script>
+      });
+    });
+  </script>
 </body>
 </html>
